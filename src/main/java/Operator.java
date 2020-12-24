@@ -1,5 +1,3 @@
-import java.util.function.Function;
-
 public class Operator {
 
     public static Double plus(double first, double second) {

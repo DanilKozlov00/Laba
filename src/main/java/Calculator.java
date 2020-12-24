@@ -103,7 +103,6 @@ public class Calculator {
 
     private Double calculate(LinkedList<Token> tokens) {
         Stack<Double> result = new Stack<>();
-        Double num;
         if (tokens.size() == 1) return Double.parseDouble(tokens.get(0).content);
         if (tokens.size() == 2 || tokens.get(1).tType == Token.TokenType.Operator) {
             return Double.parseDouble(tokens.get(0).content);
@@ -134,7 +133,7 @@ public class Calculator {
     }
 
     public Double calculatorWork(String expression) {
-        LinkedList<Token> work = new LinkedList<>();
+        LinkedList<Token> work;
         work = Tokenisation(expression);
         preprocessed(work);
         work = toPostfix(work);
