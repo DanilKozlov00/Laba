@@ -1,23 +1,21 @@
 public class Token {
-    String content;
+    public String content;
     TokenType tType;
-    int position;
 
-    public enum TokenType{
+    public enum TokenType {
         Operator,
         Number,
         OpenBrace,
         CloseBrace
     }
 
-    public Token(String content,TokenType type, int position){
-        this.content=content;
-        this.tType=type;
-        this.position=position;
+    public Token(String content, TokenType type) {
+        this.content = content;
+        this.tType = type;
     }
 
     @Override
     public String toString() {
-        return String.format("%s '%s' at %d", tType.toString(), content, position);
+        return String.format("%s '%s'", tType.toString(), content);
     }
 }
