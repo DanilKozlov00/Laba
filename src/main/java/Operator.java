@@ -1,34 +1,39 @@
+import java.util.function.Function;
+
 public class Operator {
+    String content;
+    int priority;
+    Function<Double[], Double> function;
 
-    public static Double plus(double first, double second) {
-        return first + second;
+
+    public Operator(String content,  int priority, Function<Double[], Double> function) {
+        this.content = content;
+        this.priority = priority;
+        this.function = function;
     }
 
-    public static Double minus(double first, double second) {
-        return first - second;
+    public static Double plus(Double ... args){
+        return args[0]+args[1];
     }
 
-    public static Double multiply(double first, double second) {
-        return first * second;
+    public static Double minus(Double ... args){
+        return args[0]-args[1];
     }
 
-    public static Double divide(double first, double second) throws ArithmeticException {
-        if (first != 0)
-            return first / second;
+    public static Double multiply(Double ... args){
+        return args[0]*args[1];
+    }
+
+    public static Double divide(Double ... args) throws ArithmeticException{
+        if(args[1]!=0)
+            return args[0]/args[1];
         else throw new ArithmeticException("Попытка деления на ноль");
     }
 
-    public static int priority(Token token) {
-        switch (token.content) {
-            case "^":
-                return 3;
-            case "*":
-            case "/":
-                return 2;
-            case "+":
-            case "-":
-                return 1;
-        }
-        return 0;
+    public static Double raiseDegree(Double ... args){
+        return Math.pow(args[0], args[1]);
     }
+
+
+
 }

@@ -1,17 +1,17 @@
 public class Token {
-    public String content;
+    String content;
     TokenType tType;
 
-    public enum TokenType {
+    public enum TokenType{
         Operator,
         Number,
         OpenBrace,
         CloseBrace
     }
 
-    public Token(String content, TokenType type) {
-        this.content = content;
-        this.tType = type;
+    public Token(String content,TokenType type){
+        this.content=content;
+        this.tType=type;
     }
 
     @Override
